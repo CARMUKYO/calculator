@@ -12,8 +12,8 @@ let firstNumber = 0;
 let operator ="";
 let secondNumber = 0;
 const displayArray = [];
-solution.textContent ="";
-result.textContent = "";
+solution.textContent ="0";
+result.textContent = "0";
 
 numbers.forEach((num) =>{
     num.addEventListener("click", addNumber);
@@ -41,7 +41,7 @@ function setOperator(n){
 }
 
 function evaluateEquation(){
-    if(solution.textContent === ""){
+    if(solution.textContent === "0"){
         return;
     }
     secondNumber = result.textContent;
@@ -86,8 +86,8 @@ function clearCal(){
     secondNumber = 0;
     operator = "";
     displayArray.length = 0;
-    solution.textContent = "";
-    result.textContent = "";
+    solution.textContent = "0";
+    result.textContent = "0";
 }
 
 document.addEventListener('keydown', takeKeyboardInput);
