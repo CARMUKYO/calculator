@@ -9,7 +9,7 @@ const result = document.getElementById("result");
 const buttons = document.querySelectorAll(".button");
 
 let firstNumber = 0;
-let operator ="";
+let operator ="f";
 let secondNumber = 0;
 const displayArray = [];
 solution.textContent ="0";
@@ -29,11 +29,22 @@ dot.addEventListener("click", addNumber);
 backSpace.addEventListener("click", backFunction);
 
 function addNumber(n){
+    if(displayArray.includes(".")){
+        if(n.target.id =="."){
+            return;
+        }
+    }
+    if(displayArray.length === 10){
+        return;
+    }
     displayArray.push(n.target.id);
     result.textContent = displayArray.join('');
 }
 
 function setOperator(n){
+    if(operator != "f"){
+        evaluateEquation();
+    }
     operator = n.target.id; 
     firstNumber = result.textContent;
     solution.textContent = firstNumber; 
@@ -46,7 +57,7 @@ function evaluateEquation(){
     }
     secondNumber = result.textContent;
     solution.textContent = firstNumber + operator + secondNumber;
-    result.textContent = operate(firstNumber,secondNumber,operator);
+    result.textContent = roundResult(operate(firstNumber,secondNumber,operator));
 }
 
 
@@ -115,3 +126,7 @@ function backFunction(){
             result.textContent = "0";
         }
 }
+
+function roundResult(n) {
+    return Math.round(n * 1000) / 1000
+  }

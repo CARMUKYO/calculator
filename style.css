@@ -7,7 +7,7 @@ body {
 }
 
 #calculatorContainer{
-    width: 25%;
+    width: 30%;
     height: 70%;
     border: 3px solid black;
     display: grid;
@@ -19,7 +19,8 @@ body {
     border: 1px solid black;
     text-align: right;
     padding-right: 10px;
-    font-size: 30px;
+    font-size: 25px;
+    word-wrap: break-word;
 }
 
 #buttons{
